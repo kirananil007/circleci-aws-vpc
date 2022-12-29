@@ -4,14 +4,12 @@ jobs:
   check-tf-config:
     working_directory: /tmp/project
     docker:
-      - image: circleci/python:3.9-buster-node-browsers-legacy
+      - image: circleci/python:3.9.9-buster-node-browsers-legacy
     steps:
       - checkout
       - run:
           name: Run Chekhov
           command: |
-            sudo apt-get update
-            sudo apt-get install python-pip
             sudo pip install -U checkov
             export TF_VERSION=1.1.6
             sudo wget https://releases.hashicorp.com/terraform/"${TF_VERSION}"/terraform_"${TF_VERSION}"_linux_amd64.zip
