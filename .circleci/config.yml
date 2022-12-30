@@ -25,7 +25,7 @@ jobs:
           paths:
             - .
 
-  plan-apply:
+  generate-tf-plan:
     working_directory: /tmp/project
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
@@ -41,7 +41,7 @@ jobs:
           paths:
             - .
 
-  apply:
+  run-tf-apply:
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
@@ -71,7 +71,7 @@ jobs:
           paths:
             - .
 
-  destroy:
+  run-tf-destroy:
     docker:
       - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
     steps:
@@ -92,24 +92,24 @@ workflows:
           type: approval
           requires:
             - check-tf-config
-      - plan-apply:
+      - generate-tf-plan:
           requires:
             - plan-approve
       - hold-apply:
           type: approval
           requires:
-            - plan-apply
-      - apply:
+            - generate-tf-plan
+      - run-tf-apply:
           requires:
             - hold-apply
       - plan-destroy:
           requires:
-            - apply
+            - run-tf-apply
       - hold-destroy:
           type: approval
           requires:
             - plan-destroy
-      - destroy:
+      - run-tf-destroy:
           requires:
             - hold-destroy
       
