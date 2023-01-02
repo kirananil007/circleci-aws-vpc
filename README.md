@@ -1,6 +1,6 @@
 # Running Terraform to create AWS resources using Checkov and CircleCI
 
-The pipeline illustrated integrated terraform configurations with Checkov scans which helps to find any misconfigurations before deployment. Checkov is a static analysis tool for finding IaC misconfigurations. It can be used for other tools such as helm charts, kubernetes, docker etc.
+The pipeline illustrated integrates terraform configurations with Checkov scans which helps to find any misconfigurations before deployment. Checkov is a static analysis tool for finding IaC misconfigurations. It can be used for other tools such as helm charts, kubernetes, docker etc.
 
 Terraform is a tool to manage the entire lifecycle of buiding, changing and versioning infrastructure. Terraform works with multiple cloud providers such as Amazon Web Services(AWS), Microsoft Azure, Google Cloud platforms as such or on-prem clouds such as OpenStack, vSphere etc. Hashicorp owns terraform and is open source.
 
