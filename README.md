@@ -53,7 +53,7 @@ This is the first step for running static code analysis scan runs on the terrafo
 ### Sample Pipeline to create AWS VPC
 ---
 
-The pipeline creates and deploys a VPC with public and private subnets in the AWS account across different availability zones. For more details, refer here[include URL].
+The pipeline creates and deploys a VPC with public and private subnets in the AWS account across different availability zones. For more details, refer [here](https://github.com/kirananil007/circleci-aws-vpc/blob/main/main.tf).
 
 1. Clone the repository.
 
